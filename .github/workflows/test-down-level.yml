@@ -2,14 +2,7 @@ name: Test Down Level
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - main
-    - release/*
-  pull_request:
-    branches:
-    - main
-    - release/*
+  
 
 concurrency:
   # Cancel any workflow currently in progress for the same PR.
@@ -25,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         release: ['2.0.2', '2.1.0']
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         arch: [x64]
         tls: [schannel, openssl]
         exclude:
